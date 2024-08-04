@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="english">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Multiplication and Division</title>
+    
+</head>
+<body>
+    <h2>Multiplication and Division</h2>
+    <form>
+        <label for="num1">1st Number: </label>
+        <input type="text" id="num1" name="num1"><br><br>
+        <label for="num2">2nd Number: </label>
+        <input type="text" id="num2" name="num2"><br><br>
+        <input type="button" value="Multiply" onclick="calculate('multiply')">
+        <input type="button" value="Divide" onclick="calculate('divide')">
+    </form>
+    <p id="result">The Result Is: </p>
+    <script type="text/javascript">
+        function calculate(operation) {
+            // Get the values from the input fields
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result;
+
+            // Perform the calculation based on the selected operation
+            if (operation === 'multiply') {
+                result = num1 * num2;
+            } else if (operation === 'divide') {
+                if (num2 === 0) {
+                    result = 'Cannot divide by zero';
+                } else {
+                    result = num1 / num2;
+                }
+            }
+
+            // Display the result
+            document.getElementById('result').innerText = "The Result Is: " + result;
+        }
+    </script>
+</body>
+</html>

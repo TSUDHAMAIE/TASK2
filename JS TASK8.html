@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+    background: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+    background: linear-gradient(to bottom right, #04dfbb, #04e9e9,#05cdf5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    width: 500px; 
+}
+
+h2 {
+    color: blue;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+span {
+    color: red;
+    display: none; 
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+a {
+    color: blue;
+}
+
+    </style>
+</head>
+<body>
+    <form id="registrationForm">
+        <h2>Registration form</h2>
+        <label for="firstName">First Name</label> <input type="text" id="firstName" name="firstName">
+        <span id="firstNameError">POOR</span><br>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName">
+        <span id="lastNameError">POOR</span><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <span id="emailError">POOR</span><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+        <span id="passwordError">POOR</span><br>
+
+        <label for="rePassword">Re-enter Password</label>
+        <input type="password" id="rePassword" name="rePassword">
+        <span id="rePasswordError">POOR OR MISMATCH</span><br>
+
+        <label>Gender</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age">
+        <span id="ageError">POOR</span><br>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone">
+        <span id="phoneError">POOR</span><br>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address"></textarea>
+        <span id="addressError">POOR</span><br>
+
+        <label for="state">State</label>
+        <input type="text" id="state" name="state">
+        <span id="stateError">POOR</span><br>
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+            <option value="">Choose your country</option>
+        </select><br>
+
+        <label>Languages known</label>
+        <input type="checkbox" id="english" name="language" value="English">
+        <label for="english">English</label>
+        <input type="checkbox" id="kannada" name="language" value="Kannada">
+        <label for="kannada">Kannada</label>
+        <input type="checkbox" id="hindi" name="language" value="Hindi">
+        <label for="hindi">Hindi</label>
+        <input type="checkbox" id="telugu" name="language" value="Telugu">
+        <label for="telugu">Telugu</label><br>
+
+        <input type="checkbox" id="declaration" name="declaration">
+        <label for="declaration">Hereby I declare all the given details are true</label><br>
+
+        <button type="button" onclick="validateForm()">REGISTER</button>
+    </form>
+    <p><a href="#">Log in to Existing website</a></p>
+
+    <script>
+        function validateForm() {
+    var isValid = true;
+
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var rePassword = document.getElementById("rePassword").value;
+    var age = document.getElementById("age").value;
+    var phone = document.getElementById("phone").value;
+    var address = document.getElementById("address").value;
+    var state = document.getElementById("state").value;
+    var country = document.getElementById("country").value;
+
+    if (firstName === "") {
+        document.getElementById("firstNameError").style.display = "inline";
+        document.getElementById("firstNameError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("firstNameError").style.display = "none";
+    }
+
+    if (lastName === "") {
+        document.getElementById("lastNameError").style.display = "inline";
+        document.getElementById("lastNameError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("lastNameError").style.display = "none";
+    }
+
+    if (email === "") {
+        document.getElementById("emailError").style.display = "inline";
+        document.getElementById("emailError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("emailError").style.display = "none";
+    }
+
+    if (password === "") {
+        document.getElementById("passwordError").style.display = "inline";
+        document.getElementById("passwordError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("passwordError").style.display = "none";
+    }
+
+    if (rePassword === "" || rePassword !== password) {
+        document.getElementById("rePasswordError").style.display = "inline";
+        document.getElementById("rePasswordError").textContent = "POOR OR MISMATCH";
+        isValid = false;
+    } else {
+        document.getElementById("rePasswordError").style.display = "none";
+    }
+
+    if (age === "") {
+        document.getElementById("ageError").style.display = "inline";
+        document.getElementById("ageError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("ageError").style.display = "none";
+    }
+
+    if (phone === "") {
+        document.getElementById("phoneError").style.display = "inline";
+        document.getElementById("phoneError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("phoneError").style.display = "none";
+    }
+
+    if (address === "") {
+        document.getElementById("addressError").style.display = "inline";
+        document.getElementById("addressError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("addressError").style.display = "none";
+    }
+
+    if (state === "") {
+        document.getElementById("stateError").style.display = "inline";
+        document.getElementById("stateError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("stateError").style.display = "none";
+    }
+
+    if (country === "") {
+        document.getElementById("countryError").style.display = "inline";
+        document.getElementById("countryError").textContent = "POOR";
+        isValid = false;
+    } else {
+        document.getElementById("countryError").style.display = "none";
+    }
+
+    if (!isValid) {
+        alert("Please fill in all the required fields.");
+    } else {
+        alert("Form submitted successfully!");
+    }
+}
+    </script>
+</body>
+</html>

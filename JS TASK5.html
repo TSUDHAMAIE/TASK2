@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>Multiplication and Division</title>
+        <style>
+            .formcontainer {
+                margin:1px solid black;
+                border:2px solid black;
+                padding:10px;
+            }
+            .labelstyle {
+                font-size: 20px;
+                font-weight: bold;
+                color:black;
+               
+            }
+        </style>
+    </head>
+    <body>
+        <form class="formcontainer" id="myform">
+            <label for="name" class="labelstyle">Name: </label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email" class="labelstyle">email: </label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="url" class="labelstyle">website: </label>
+            <input type="text" id="url" name="url"><br><br>
+            <label for="message" class="labelstyle">message: </label>
+            <input type="text" id="meassage" name="message" style="height:80px"><br><br>
+            <input type="submit" value="submit">
+          </form>
+          <script>
+            document.getElementById('myform').addEventListener('submit',function(event){event.preventDefault();
+            const email = document.getElementById('email').value;
+            const url = document.getElementById('url').value;
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('meassage').value;
+            if (!email) {
+                alert('this field is required');
+                return;
+                }
+                if (!name) {
+                alert('this field is required');
+                return;
+                }
+                if (!url) {
+                alert('this field is required');
+                return;
+                }
+                if (!message) {
+                alert('this field is required');
+                return;
+                }
+                const emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const urlpattern=/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+                if (!emailpattern.test(email)) {
+                    alert('enter valid email address');
+                    return;
+                }
+                if (!urlpattern.test(url)) {
+                    alert('enter valid url');
+                    return;
+                }
+                alert('form submitted');
+                document.getElementById('myform').submit();
+            }
+           )
+        
+          </script>
+           
+    </body>
+      
+</html>

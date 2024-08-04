@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #train {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 700px;
+        }
+
+        #controls {
+            margin-top: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="train" src="file:///C:/Users/toluc/OneDrive/Pictures/Screenshots/Screenshot 2024-06-27 130755.png" alt="Train">
+    <div id="controls">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+
+    <script>
+        let train = document.getElementById('train');
+        let startButton = document.getElementById('start');
+        let stopButton = document.getElementById('stop');
+
+        let intervalId;
+        let position = 0;
+        const speed = 5; 
+        const frameRate = 20; 
+
+        startButton.addEventListener('click', startTrain);
+        stopButton.addEventListener('click', stopTrain);
+
+        function startTrain() {
+            if (!intervalId) { 
+                intervalId = setInterval(() => {
+                    position += speed;
+                    train.style.left = position + 'px';
+                
+                    if (position > window.innerWidth) {
+                        position = -train.width;
+                    }
+                }, frameRate);
+            }
+        }
+
+        function stopTrain() {
+            clearInterval(intervalId);
+            intervalId = null; 
+        }
+    </script>
+</body>
+</html>

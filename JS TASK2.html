@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="english">
+    <head>
+        <title>reverse a string</title>
+    </head>
+    <body>
+        <script>
+            function sortStr() {
+                let userStr = prompt("enter string to reverse:");
+                if (userStr === null) {
+                    console.log("user cancelled program.");
+                    return;
+                }
+                let sortedStr=userStr.split('').sort().join('');
+                console.log("user entered string:",userStr);
+                console.log("alphabetically sorted string:",sortedStr);
+            }
+           sortStr();
+        </script>
+    </body>
+</html>

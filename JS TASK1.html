@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="english">
+    <head>
+        
+        <title>Find Reverse of number</title>
+    </head>
+    <body>
+        <script>
+            function reverseNumber() {
+                let numStr = prompt("enter number to reverse:");
+                if (numStr === null) {
+                    console.log("user cancelled program.");
+                    return;
+                }
+                let num = parseInt(numStr);
+                if (isNaN(num)) {
+                    console.log("Invalid input. enter a valid number");
+                    return;
+                }
+                let reversedStr = numStr.split('').reverse().join('');
+                let reversedNum=parseInt(reversedStr);
+                console.log("original number is:",num);
+                console.log("reversed number is:",reversedNum);
+                return reversedNum;
+            }
+            reverseNumber();
+        </script>
+    </body>
+</html>
